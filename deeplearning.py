@@ -4,7 +4,7 @@ import tensorflow as tf
 import tensorflow as tf
 layers = tf.keras.layers
 import cv2
-import os 
+import os
 
 # 1.- Configuración del dataset y parámetros
 IMG_SIZE = 224
