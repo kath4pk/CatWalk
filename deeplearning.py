@@ -14,11 +14,6 @@ SEED = 42
 DATASET_DIR = 'C:/Users/kjime/OneDrive/Documentos/archive/Apparel images dataset new'
 
 def load_data():
-    """
-    Carga el dataset de imágenes de ropa desde el directorio especificado.
-    Divide el dataset en conjuntos de entrenamiento y validación,
-    y aplica la normalización de píxeles.
-    """
     # Verifica si el directorio del dataset existe
     if not os.path.exists(DATASET_DIR):
         print(f"Error: El directorio del dataset no se encontró en '{DATASET_DIR}'.")
@@ -89,11 +84,6 @@ plt.show()
 
 # 4.- Construir el modelo de red neuronal
 def build_model(num_classes):
-    """
-    Construye el modelo de red neuronal utilizando EfficientNetB0 como modelo base
-    para 'transfer learning', incluyendo capas de aumento de datos y dropout.
-    El modelo base es entrenable desde el principio con una tasa de aprendizaje baja.
-    """
     # Capas de aumento de datos: se aplican en cada época al dataset de entrenamiento
     data_augmentation = tf.keras.Sequential([
         layers.RandomFlip("horizontal"),
@@ -170,9 +160,6 @@ plt.show()
 
 # 8.- Función para reconocimiento en tiempo real desde la cámara
 def recognize_from_webcam(model, class_names, img_size):
-    """
-    Realiza el reconocimiento de ropa en tiempo real utilizando la cámara web.
-    """
     cap = cv2.VideoCapture(0)
     if not cap.isOpened():
         print("Error: No se pudo abrir la cámara. Intentando otros índices...")
